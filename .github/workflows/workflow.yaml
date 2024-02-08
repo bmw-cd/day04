@@ -16,7 +16,7 @@ jobs:
       - run: fdsufsdfs
   int:
     needs: dev
-
+    if: ${{ needs.dev.result != 'success' }}
     runs-on: [self-hosted]
     environment: int
     steps:
