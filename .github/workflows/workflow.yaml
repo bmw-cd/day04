@@ -41,4 +41,8 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
     - name: Push Docker image to Docker Hub
-      run: docker push fabioabreu475/webapp:latest
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        file: ./Dockerfile
+        tags: fabioabreu475/webapp:latest
