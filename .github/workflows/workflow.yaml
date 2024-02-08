@@ -7,7 +7,7 @@ on:
 
 jobs:
   dev:
-    runs-on: [self-hosted]
+    runs-on: [ubuntu-latest]
     environment: dev
     steps:
       - uses: actions/checkout@v4
@@ -15,7 +15,7 @@ jobs:
         run:  echo ${{ env.NAME }}
   int:
     needs: dev
-    runs-on: [self-hosted]
+    runs-on: [ubuntu-latest]
     environment: int
     steps:
       - uses: actions/checkout@v4
@@ -23,9 +23,9 @@ jobs:
         run:  echo ${{ env.NAME }}
   prod:
     needs: int
-    runs-on: [self-hosted]
+    runs-on: [ubuntu-latest]
     environment: prod
     steps:
       - uses: actions/checkout@v4
       - name: Deploy prod
-        run:  echo "$NAME"
+        run:  echo ${{ env.NAME }}
