@@ -16,7 +16,6 @@ jobs:
         run:  echo ${{ vars.NAME }}
   int:
     needs: dev
-    if: ${{ needs.dev.result != 'success' }}
     runs-on: [self-hosted]
     environment: int
     steps:
@@ -25,7 +24,6 @@ jobs:
         run:  echo ${{ vars.NAME }}
   prod:
     needs: int
-    if: ${{ needs.int.result != 'success' }}
     runs-on: [self-hosted]
     environment: prod
     steps:

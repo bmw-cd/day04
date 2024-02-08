@@ -1,13 +1,15 @@
-name: Sonarqubee
+name: Sonarqube
 
 on:
   push:
     branches:
       - main
+
+
 jobs:
   build:
     name: Build
-    runs-on: [self-hosted]
+    runs-on: ubuntu-latest
     permissions: read-all
     steps:
       - uses: actions/checkout@v2
