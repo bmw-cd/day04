@@ -1,4 +1,4 @@
-name: day4-test
+name: day4
 
 on:
     push:
