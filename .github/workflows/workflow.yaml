@@ -1,0 +1,31 @@
+name: day4
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+  dev:
+    runs-on: [self-hosted]
+    environment: dev
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy dev
+        run: echo "Deploying to Dev Environment"
+  int:
+    needs: dev
+    runs-on: [self-hosted]
+    environment: int
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy int
+        run: echo "Deploying to Int Environment"
+  prod:
+    needs: int
+    runs-on: [self-hosted]
+    environment: prod
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy prod
+        run: echo "Deploying to Prod Environment"
