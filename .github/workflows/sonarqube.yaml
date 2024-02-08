@@ -4,12 +4,10 @@ on:
   push:
     branches:
       - main
-
-
 jobs:
   build:
     name: Build
-    runs-on: [self-hosted, linux]
+    runs-on: [self-hosted]
     permissions: read-all
     steps:
       - uses: actions/checkout@v2
