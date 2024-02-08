@@ -44,4 +44,4 @@ jobs:
       with:
         push: true
         file: ./Dockerfile
-        tags: fabioabreu475/webapp:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/webapp:latest
