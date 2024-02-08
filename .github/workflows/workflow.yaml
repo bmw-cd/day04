@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy dev
-        run: echo "Deploying to Dev Environment"
+        run:  echo ${{ env.NAME }}
   int:
     needs: dev
     runs-on: [self-hosted]
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy int
-        run: echo "Deploying to Int Environment"
+        run:  echo ${{ env.NAME }}
   prod:
     needs: int
     runs-on: [self-hosted]
@@ -28,4 +28,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Deploy prod
-        run: echo "Deploying to Prod Environment"
+        run:  echo "$NAME"
